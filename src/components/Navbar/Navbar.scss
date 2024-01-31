@@ -1,0 +1,20 @@
+.navbar {
+	display: flex;
+	align-items: center;
+	gap: 25px;
+	.navbarLinkLogo {
+		display: flex;
+		align-items: center;
+		.navbarLogo {
+			font-weight: 900;
+			font-size: 30px;
+		}
+	}
+	.menuBar {
+		display: flex;
+		justify-content: center;
+		li {
+			font-weight: 500;
+		}
+	}
+}
