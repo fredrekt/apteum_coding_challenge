@@ -39,7 +39,7 @@ const Navbar: React.FC = () => {
 	};
 
 	return (
-		<div className="navbar">
+		<div data-testid="navbar" className="navbar">
 			<Link className="navbarLinkLogo" to="/">
 				<img className="navbarLogoImg" src={logoImg} alt="logo" />
 				<Typography.Text className="navbarLogo">Landchecker</Typography.Text>
