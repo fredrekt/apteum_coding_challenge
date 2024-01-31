@@ -51,19 +51,19 @@ const DetailsDrawer: React.FC<DetailsDrawerProps> = ({ opened, onCancel, selecte
 		{
 			key: '1',
 			label: 'Council',
-			children: selectedData.council,
+			children: selectedData.council || 'N/A',
 			span: { xs: 1, sm: 2, md: 3, lg: 3, xl: 2, xxl: 2 }
 		},
 		{
 			key: '3',
 			label: 'Postal Code',
-			children: selectedData.postcode,
+			children: selectedData.postcode || 'N/A',
 			span: { xs: 1, sm: 2, md: 3, lg: 3, xl: 2, xxl: 2 }
 		},
 		{
 			key: '2',
 			label: 'Council Property #',
-			children: selectedData.council_property_number,
+			children: selectedData.council_property_number || 'N/A',
 			span: { xs: 1, sm: 2, md: 3, lg: 3, xl: 2, xxl: 2 }
 		},
 		{

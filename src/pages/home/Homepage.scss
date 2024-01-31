@@ -1,0 +1,24 @@
+.homePage {
+	.mainContent {
+		padding: 0 !important;
+		.filtersContainer {
+			width: 100%;
+			padding: 20px;
+
+			.filterLabel {
+				margin: 0;
+			}
+
+			.searchFilterContainer {
+				display: flex;
+				gap: 15px;
+				align-items: center;
+
+				.searchFilterInput {
+					flex-grow: 1;
+					width: auto;
+				}
+			}
+		}
+	}
+}
