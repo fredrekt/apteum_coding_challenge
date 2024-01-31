@@ -24,7 +24,7 @@
 	"scripts": {
 		"start": "react-scripts start",
 		"build": "react-scripts build",
-		"test": "react-scripts test",
+		"test": "jest",
 		"eject": "react-scripts eject",
 		"prettier:check": "prettier --check ./src/**/*.{ts,tsx,js,jsx,html,scss,css,md,json}",
 		"prettier:fix-all": "prettier --write ./src/**/*.{ts,tsx,js,jsx,html,scss,css,md,json}"
@@ -48,6 +48,7 @@
 		]
 	},
 	"devDependencies": {
+		"jest": "^29.7.0",
 		"prettier": "^3.2.4"
 	}
 }
