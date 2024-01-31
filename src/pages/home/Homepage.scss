@@ -4,15 +4,19 @@
 		.filtersContainer {
 			width: 100%;
 			padding: 20px;
+
 			.filterLabel {
 				margin: 0;
 			}
+
 			.searchFilterContainer {
 				display: flex;
 				gap: 15px;
 				align-items: center;
+
 				.searchFilterInput {
-					width: 95%;
+					flex-grow: 1;
+					width: auto;
 				}
 			}
 		}
