@@ -58,7 +58,8 @@
 		],
 		"silent": true,
 		"moduleNameMapper": {
-			"\\.(scss|css)$": "<rootDir>/__mocks__/styleMock.js"
+			"\\.(scss|css)$": "<rootDir>/__mocks__/styleMock.js",
+			"\\.(png|jpg|jpeg|gif|svg)$": "<rootDir>/__mocks__/imageMock.js"
 		}
 	},
 	"devDependencies": {
