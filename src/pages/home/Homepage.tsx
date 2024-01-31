@@ -5,6 +5,13 @@ import DetailsDrawer from '../../drawers/DetailsDrawer/DetailsDrawer';
 import { Property } from '../../types/property.types';
 import { getPropertiesData } from '../../api/api';
 import SplashScreen from '../../components/SplashScreen/SplashScreen';
+import ReactMapboxGl, { Layer, Feature } from 'react-mapbox-gl';
+import 'mapbox-gl/dist/mapbox-gl.css';
+
+const Map = ReactMapboxGl({
+	accessToken: process.env.REACT_APP_MAPBOX_TOKEN || '',
+	logoPosition: 'bottom-right'
+});
 
 const Homepage: React.FC = () => {
 	const [selectedProperty, setSelectedProperty] = useState<Property | null>(null);
@@ -40,13 +47,26 @@ const Homepage: React.FC = () => {
 			) : (
 				<>
 					{Array.isArray(listOfProperties) && listOfProperties.length > 0 && (
-						<ul>
-							{listOfProperties.map((property) => (
-								<li onClick={() => onChangeProperty(property)} key={property.property_id}>
-									{property.full_address}
-								</li>
-							))}
-						</ul>
+						<>
+							<Map
+								// eslint-disable-next-line
+								style="mapbox://styles/mapbox/streets-v9"
+								containerStyle={{
+									height: '100%',
+									width: '100%'
+								}}
+							>
+								{listOfProperties.map((property) => (
+									<Layer type="symbol" id="marker" layout={{ 'icon-image': 'marker-15' }}>
+										<Feature
+											key={property.property_id}
+											onClick={() => onChangeProperty(property)}
+											coordinates={[51.53540275850126, -0.222909444136841]}
+										/>
+									</Layer>
+								))}
+							</Map>
+						</>
 					)}
 					{selectedProperty && (
 						<DetailsDrawer
