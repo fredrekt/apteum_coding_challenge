@@ -8,13 +8,14 @@ import SplashScreen from '../../components/SplashScreen/SplashScreen';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import ReactMapGl, { Marker } from 'react-map-gl';
 import { Col, Input, Row, Typography } from 'antd';
+import { MapBoxViewport } from '../../types/global.types';
 
 const Homepage: React.FC = () => {
 	const [selectedProperty, setSelectedProperty] = useState<Property | null>(null);
 	const [openDrawer, setOpenDrawer] = useState<boolean>(false);
 	const [loading, setLoading] = useState<boolean>(true);
 	const [listOfProperties, setListOfProperties] = useState<Property[]>([]);
-	const [viewPort] = useState({
+	const [viewPort] = useState<MapBoxViewport>({
 		width: `100vw`,
 		height: `100vh`,
 		zoom: 4,
