@@ -24,7 +24,7 @@
 	"scripts": {
 		"start": "react-scripts start",
 		"build": "react-scripts build",
-		"test": "react-scripts test",
+		"test": "jest",
 		"eject": "react-scripts eject",
 		"prettier:check": "prettier --check ./src/**/*.{ts,tsx,js,jsx,html,scss,css,md,json}",
 		"prettier:fix-all": "prettier --write ./src/**/*.{ts,tsx,js,jsx,html,scss,css,md,json}"
@@ -47,7 +47,24 @@
 			"last 1 safari version"
 		]
 	},
+	"jest": {
+		"testEnvironment": "jsdom",
+		"transform": {
+			"^.+\\.tsx?$": "ts-jest"
+		},
+		"preset": "ts-jest",
+		"transformIgnorePatterns": [
+			"/node_modules/"
+		],
+		"silent": true,
+		"moduleNameMapper": {
+			"\\.(scss|css)$": "<rootDir>/__mocks__/styleMock.js"
+		}
+	},
 	"devDependencies": {
-		"prettier": "^3.2.4"
+		"jest": "^29.7.0",
+		"jest-environment-jsdom": "^29.7.0",
+		"prettier": "^3.2.4",
+		"ts-jest": "^29.1.2"
 	}
 }
