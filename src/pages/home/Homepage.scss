@@ -7,6 +7,14 @@
 			.filterLabel {
 				margin: 0;
 			}
+			.searchFilterContainer {
+				display: flex;
+				gap: 15px;
+				align-items: center;
+				.searchFilterInput {
+					width: 95%;
+				}
+			}
 		}
 	}
 }
