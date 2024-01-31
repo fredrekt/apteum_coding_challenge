@@ -5,19 +5,22 @@ import DetailsDrawer from '../../drawers/DetailsDrawer/DetailsDrawer';
 import { Property } from '../../types/property.types';
 import { getPropertiesData } from '../../api/api';
 import SplashScreen from '../../components/SplashScreen/SplashScreen';
-import ReactMapboxGl, { Layer, Feature } from 'react-mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
-
-const Map = ReactMapboxGl({
-	accessToken: process.env.REACT_APP_MAPBOX_TOKEN || '',
-	logoPosition: 'bottom-right'
-});
+import ReactMapGl, { Marker } from 'react-map-gl';
+import { Row, Typography } from 'antd';
 
 const Homepage: React.FC = () => {
 	const [selectedProperty, setSelectedProperty] = useState<Property | null>(null);
 	const [openDrawer, setOpenDrawer] = useState<boolean>(false);
 	const [loading, setLoading] = useState<boolean>(true);
 	const [listOfProperties, setListOfProperties] = useState<Property[]>([]);
+	const [viewPort] = useState({
+		width: `100vw`,
+		height: `100vh`,
+		zoom: 4,
+		latitude: -25.2888,
+		longitude: 133.7751
+	});
 
 	const fetchData = async () => {
 		try {
@@ -40,33 +43,39 @@ const Homepage: React.FC = () => {
 		setOpenDrawer(true);
 	};
 
+	const renderFilters = () => {
+		if (!Array.isArray(listOfProperties) || !listOfProperties.length) return;
+		return (
+			<Row className="filtersContainer">
+				<Typography.Paragraph className="filterLabel">Filters</Typography.Paragraph>
+			</Row>
+		);
+	};
+
 	return (
-		<DefaultLayout>
+		<DefaultLayout className="homePage">
 			{loading ? (
 				<SplashScreen />
 			) : (
 				<>
+					{renderFilters()}
 					{Array.isArray(listOfProperties) && listOfProperties.length > 0 && (
-						<>
-							<Map
-								// eslint-disable-next-line
-								style="mapbox://styles/mapbox/streets-v9"
-								containerStyle={{
-									height: '100%',
-									width: '100%'
-								}}
+						<div style={{ width: '100%', height: '100%', zIndex: 999 }}>
+							<ReactMapGl
+								mapboxAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
+								mapStyle={'mapbox://styles/mapbox/streets-v9'}
+								initialViewState={{ ...viewPort }}
 							>
 								{listOfProperties.map((property) => (
-									<Layer type="symbol" id="marker" layout={{ 'icon-image': 'marker-15' }}>
-										<Feature
-											key={property.property_id}
-											onClick={() => onChangeProperty(property)}
-											coordinates={[51.53540275850126, -0.222909444136841]}
-										/>
-									</Layer>
+									<Marker
+										key={property.property_id}
+										onClick={() => onChangeProperty(property)}
+										latitude={property.latitude}
+										longitude={property.longitude}
+									/>
 								))}
-							</Map>
-						</>
+							</ReactMapGl>
+						</div>
 					)}
 					{selectedProperty && (
 						<DetailsDrawer
