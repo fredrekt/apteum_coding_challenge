@@ -4,7 +4,7 @@ import './Footerbar.scss';
 
 const Footerbar: React.FC = () => {
 	return (
-		<Typography.Paragraph className="footerTxt">
+		<Typography.Paragraph className="footerTxt" data-testid="footerbar">
 			Created with ❤️ by{' '}
 			<a rel="noreferrer" href="https://fredgaringo-main.netlify.app/" target="_blank">
 				Fred Garingo
