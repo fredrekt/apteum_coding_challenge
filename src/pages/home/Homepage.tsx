@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, lazy, Suspense } from 'react';
 import './Homepage.scss';
 import DefaultLayout from '../../layouts/default/DefaultLayout';
-import DetailsDrawer from '../../drawers/DetailsDrawer/DetailsDrawer';
 import { Property } from '../../types/property.types';
 import { getPropertiesData } from '../../api/api';
 import SplashScreen from '../../components/SplashScreen/SplashScreen';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import ReactMapGl, { Marker } from 'react-map-gl';
-import { Col, Input, Row, Typography } from 'antd';
+import { Col, Input, Row, Spin, Typography } from 'antd';
 import { MapBoxViewport } from '../../types/global.types';
+
+const DetailsDrawer = lazy(() => import('../../drawers/DetailsDrawer/DetailsDrawer'));
 
 const Homepage: React.FC = () => {
 	const [selectedProperty, setSelectedProperty] = useState<Property | null>(null);
@@ -125,12 +126,14 @@ const Homepage: React.FC = () => {
 						</div>
 					)}
 					{selectedProperty && (
-						<DetailsDrawer
-							key={selectedProperty.property_id}
-							opened={openDrawer}
-							onCancel={() => setOpenDrawer(!openDrawer)}
-							selectedData={selectedProperty}
-						/>
+						<Suspense fallback={<Spin />}>
+							<DetailsDrawer
+								key={selectedProperty.property_id}
+								opened={openDrawer}
+								onCancel={() => setOpenDrawer(!openDrawer)}
+								selectedData={selectedProperty}
+							/>
+						</Suspense>
 					)}
 				</>
 			)}
