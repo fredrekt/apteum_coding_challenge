@@ -36,3 +36,7 @@ Runs prettier to check `src` for files that don't meet the formatting rules set 
 ### `yarn prettier:fix-all`
 
 Runs prettier to fix all formatting issues and set new ones based on the config.
+
+---
+
+If you run into issues please reach out to [Fredrick Garingo](mailto:fredrickjohng7@gmail.com).
