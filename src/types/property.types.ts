@@ -1,5 +1,5 @@
 export interface Property {
-	id: number;
+	property_id: number;
 	council: string;
 	council_property_number: string;
 	full_address: string;
