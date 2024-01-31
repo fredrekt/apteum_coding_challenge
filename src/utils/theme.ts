@@ -25,6 +25,10 @@ export const theme = {
 		Card: {
 			borderRadius: 0,
 			borderRadiusOuter: 0
+		},
+		Collapse: {
+			borderRadiusLG: 0,
+			headerBg: '#fff'
 		}
 	}
 };
