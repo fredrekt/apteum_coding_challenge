@@ -5,9 +5,13 @@
 	.navbarLinkLogo {
 		display: flex;
 		align-items: center;
+		gap: 5px;
 		.navbarLogo {
 			font-weight: 900;
 			font-size: 30px;
+		}
+		.navbarLogoImg {
+			width: 40px;
 		}
 	}
 	.menuBar {
@@ -15,6 +19,53 @@
 		justify-content: center;
 		li {
 			font-weight: 500;
+		}
+	}
+	.menuBarMobile {
+		display: none;
+	}
+	/**
+    * Basic CSS Media Query Template
+    * ------------------------------------------
+    *  Responsive Grid Media Queries - 1280, 1024, 768, 480
+    *   1280-1024   - desktop (default grid)
+    *   1024-768    - tablet landscape
+    *   768-480     - tablet 
+    *   480-less    - phone landscape & smaller
+    * --------------------------------------------
+    */
+	@media all and (min-width: 1024px) and (max-width: 1280px) {
+	}
+
+	@media all and (min-width: 768px) and (max-width: 1024px) {
+		.menuBarCta {
+			display: none;
+		}
+	}
+
+	@media all and (min-width: 480px) and (max-width: 768px) {
+		.menuBarCta {
+			display: none;
+		}
+	}
+
+	@media all and (max-width: 480px) {
+		justify-content: space-between;
+		margin-top: 12px;
+		margin-bottom: 12px;
+		.navbarLinkLogo {
+			.navbarLogo {
+				display: none;
+			}
+		}
+		.menuBar {
+			display: none;
+		}
+		.menuBarMobile {
+			display: flex;
+		}
+		.menuBarCta {
+			display: none;
 		}
 	}
 }

@@ -1,7 +1,9 @@
-import { Button, Menu, Typography } from 'antd';
+import { Button, Dropdown, Menu, Typography } from 'antd';
 import React from 'react';
 import './Navbar.scss';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
+import logoImg from '../../assets/images/logo.png';
+import { AppstoreOutlined } from '@ant-design/icons';
 
 const Navbar: React.FC = () => {
 	const navigate = useNavigate();
@@ -39,6 +41,7 @@ const Navbar: React.FC = () => {
 	return (
 		<div className="navbar">
 			<Link className="navbarLinkLogo" to="/">
+				<img className="navbarLogoImg" src={logoImg} alt="logo" />
 				<Typography.Text className="navbarLogo">Landchecker</Typography.Text>
 			</Link>
 			<Menu
@@ -54,6 +57,9 @@ const Navbar: React.FC = () => {
 					</Menu.Item>
 				))}
 			</Menu>
+			<Dropdown menu={{ items }} trigger={['click']} className="menuBarMobile">
+				<AppstoreOutlined style={{ fontSize: 35 }} />
+			</Dropdown>
 			<div className="menuBarCta">
 				<Link to="/register">
 					<Button type="primary">Get Started</Button>
