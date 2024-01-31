@@ -121,11 +121,7 @@ const DetailsDrawer: React.FC<DetailsDrawerProps> = ({ opened, onCancel, selecte
 		{
 			key: 'view-report',
 			label: '',
-			children: (
-				<Button className="w-100" type="primary">
-					View Report
-				</Button>
-			),
+			children: <Button className="w-100">View Report</Button>,
 			span: { xs: 1, sm: 2, md: 3, lg: 3, xl: 2, xxl: 2 }
 		},
 		{
