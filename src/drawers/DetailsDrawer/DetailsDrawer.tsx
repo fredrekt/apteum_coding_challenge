@@ -24,6 +24,7 @@ const collapseItems: CollapseProps['items'] = [
 		className: 'mapView',
 		children: (
 			<iframe
+				title="sample location"
 				src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125609.05871986915!2d123.84155495006623!3d10.319214857280429!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a999ba46f851e1%3A0x5b057b836416a1a3!2sGoogle%20eBloc%204!5e0!3m2!1sen!2sph!4v1706697795148!5m2!1sen!2sph"
 				height="450"
 				style={{ border: 0, width: `100%` }}
