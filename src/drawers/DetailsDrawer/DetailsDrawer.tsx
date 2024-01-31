@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import './DetailsDrawer.scss';
 import { DrawerProps } from '../../types/global.types';
 import { Property } from '../../types/property.types';
@@ -46,7 +46,11 @@ const collapseItems: CollapseProps['items'] = [
 	}
 ];
 
-const DetailsDrawer: React.FC<DetailsDrawerProps> = ({ opened, onCancel, selectedData }) => {
+const DetailsDrawer: React.FC<DetailsDrawerProps> = React.memo(({ opened, onCancel, selectedData }) => {
+	const handleSaveToFavorites = useCallback(() => {
+		message.success('Saved to favorites');
+	}, []);
+
 	const [items] = useState<DescriptionsProps['items']>([
 		{
 			key: '1',
@@ -112,7 +116,7 @@ const DetailsDrawer: React.FC<DetailsDrawerProps> = ({ opened, onCancel, selecte
 			key: 'save-property',
 			label: '',
 			children: (
-				<Button onClick={() => message.success('Saved to favorites')} className="w-100" type="primary">
+				<Button onClick={handleSaveToFavorites} className="w-100" type="primary">
 					Save to Favorites
 				</Button>
 			),
@@ -159,6 +163,6 @@ const DetailsDrawer: React.FC<DetailsDrawerProps> = ({ opened, onCancel, selecte
 			</div>
 		</Drawer>
 	);
-};
+});
 
 export default DetailsDrawer;
