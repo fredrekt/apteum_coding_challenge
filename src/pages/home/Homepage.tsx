@@ -19,8 +19,8 @@ const Homepage: React.FC = () => {
 		width: `100vw`,
 		height: `100vh`,
 		zoom: 4,
-		latitude: -25.2888,
-		longitude: 133.7751
+		latitude: -37.8136,
+		longitude: 144.9631
 	});
 	const [searchValue, setSearchValue] = useState<string>('');
 
