@@ -1,6 +1,6 @@
 # Apteum Landchecker Challenge
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). It is quite mobile responsive, unit tests are setup, performance improvements like code splitting, memoization, caching, best code practices and etc.
 
 ## Available Scripts
 
