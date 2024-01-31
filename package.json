@@ -47,8 +47,24 @@
 			"last 1 safari version"
 		]
 	},
+	"jest": {
+		"testEnvironment": "jsdom",
+		"transform": {
+			"^.+\\.tsx?$": "ts-jest"
+		},
+		"preset": "ts-jest",
+		"transformIgnorePatterns": [
+			"/node_modules/"
+		],
+		"silent": true,
+		"moduleNameMapper": {
+			"\\.(scss|css)$": "<rootDir>/__mocks__/styleMock.js"
+		}
+	},
 	"devDependencies": {
 		"jest": "^29.7.0",
-		"prettier": "^3.2.4"
+		"jest-environment-jsdom": "^29.7.0",
+		"prettier": "^3.2.4",
+		"ts-jest": "^29.1.2"
 	}
 }
